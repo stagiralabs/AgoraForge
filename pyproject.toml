@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agoraforge"
+version = "0.1.0"
+description = "Synthetic scalable oversight: graph-based environments, tiny-model RL, and black-box mechanism search"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "torch>=2.3",
+    "numpy",
+    "ml_collections",
+    "absl-py",
+    "tensorboard",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+wandb = ["wandb"]
+
+[project.scripts]
+agoraforge-train = "agoraforge.train:cli"
+agoraforge-search = "agoraforge.search:main"
+agoraforge-viz-math = "agoraforge.visualization.math.trajectory:main"
+agoraforge-viz-debate = "agoraforge.visualization.debate.trajectory:main"
+
+[tool.setuptools.packages.find]
+include = ["agoraforge*"]
+
+[tool.setuptools.package-data]
+"agoraforge.visualization.math" = ["template.html"]
+"agoraforge.visualization.debate" = ["template.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

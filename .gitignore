@@ -1,0 +1,14 @@
+.worktrees
+.tmp
+results
+.viz_figures
+.env
+models/saved
+**/__pycache__
+**/*.pyc
+wandb
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
